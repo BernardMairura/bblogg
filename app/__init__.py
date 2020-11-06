@@ -42,8 +42,8 @@ def create_app(config_name):
    
     
     # Registering blog blueprint
-    # from .Blog import blog as blog_blueprint
-    # app.register_blueprint(blog_blueprint)
+    from .blog import blog as blog_blueprint
+    app.register_blueprint(blog_blueprint)
 
 
     # Registering the blueprint

@@ -2,9 +2,11 @@ from . import blog
 from flask import render_template, url_for, redirect
 from .. import db
 from ..models import Post
-from .form import PostForm
+from .forms import PostForm
 import markdown2
 from flask_login import current_user, login_user, logout_user, login_required
+
+
 
 @blog.route('/blog', methods = ['GET', 'POST'])
 @login_required
