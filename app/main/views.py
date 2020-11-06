@@ -3,12 +3,12 @@ from . import main
 from flask import render_template
 from .forms import ContactForm
 from .. import db
-from ..models import Blog
+from ..models import Post
 
 @main.route('/')
 def index():
-    blogs = Blog.query.order_by(Blog.timestamp.desc()).all()
-    return render_template('index.html', active = 'home', blogs=blogs)
+    posts = Post.query.order_by(Post.timestamp.desc()).all()
+    return render_template('index.html', active = 'home', posts=posts)
 
 @main.route('/contact')
 def contact():

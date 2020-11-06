@@ -20,7 +20,7 @@ class User(db.Model,UserMixin):
     username = db.Column(db.String(255))
     email = db.Column(db.String(255),unique = True,index = True)
     pass_secure = db.Column(db.String(255))
-    blog = db.relationship('Blog', backref='user', lazy='dynamic')
+    posts = db.relationship('Post', backref='user', lazy='dynamic')
     bio = db.Column(db.String(255))
     password_secure = db.Column(db.String(255))
 
@@ -41,9 +41,9 @@ class User(db.Model,UserMixin):
 
 
 
-class Blog(db.Model):
+class Post(db.Model):
 
-    __tablename__ ='blogs'
+    __tablename__ ='posts'
 
     id = db.Column(db.Integer,primary_key = True)
     title = db.Column(db.String)
@@ -52,5 +52,5 @@ class Blog(db.Model):
     user_id = db.Column(db.Integer,db.ForeignKey("users.id"))
 
 
-admin.add_view(ModelView(Blog, db.session))
+admin.add_view(ModelView(Post, db.session))
 admin.add_view(ModelView(User, db.session))
