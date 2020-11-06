@@ -3,10 +3,10 @@ from wtforms import StringField, TextAreaField, SubmitField, PasswordField
 from wtforms.validators import InputRequired, Length, Email, EqualTo
 
 
-# class BlogForm(FlaskForm):
-# 	title = StringField('Title', validators=[Required()])
-# 	description = TextAreaField("Type your desired quote?",validators=[Required()])
-# 	submit = SubmitField('Submit')
+class BlogForm(FlaskForm):
+	title = StringField('Title', validators=[InputRequired()])
+	body = TextAreaField("Type your desired quote?",validators=[InputRequired()])
+	submit = SubmitField('Submit')
 
 class ContactForm(FlaskForm):
 	name = StringField("Name",  [InputRequired("Please enter your name.")])

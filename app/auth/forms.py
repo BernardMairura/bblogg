@@ -1,14 +1,22 @@
 from flask_wtf import FlaskForm,Form
 from wtforms import StringField,PasswordField,SubmitField,BooleanField,ValidationError
-from wtforms.validators import InputRequired,Email,EqualTo
+from wtforms.validators import Required,Email,EqualTo
 from ..models import User
 
 
+
+class LoginForm(FlaskForm):
+    email = StringField('Your Email Address',validators=[Required(),Email()])
+    password = PasswordField('Password',validators =[Required()])
+    remember = BooleanField('Remember me')
+    submit = SubmitField('Sign In')
+
+
 class RegistrationForm(FlaskForm):
-    email = StringField('Your Email Address',validators=[InputRequired(),Email()])
-    username = StringField('Enter your username',validators = [InputRequired()])
-    password = PasswordField('Password',validators = [InputRequired(), EqualTo('password_confirm',message = 'Passwords must match')])
-    password_confirm = PasswordField('Confirm Passwords',validators = [InputRequired()])
+    email = StringField('Your Email Address',validators=[Required(),Email()])
+    username = StringField('Enter your username',validators = [Required()])
+    password = PasswordField('Password',validators = [Required(), EqualTo('password_confirm',message = 'Passwords must match')])
+    password_confirm = PasswordField('Confirm Passwords',validators = [Required()])
     submit = SubmitField('Sign Up')
 
 
@@ -21,8 +29,3 @@ class RegistrationForm(FlaskForm):
             raise ValidationError('That username is taken')
 
 
-class LoginForm(FlaskForm):
-    email = StringField('Your Email Address',validators=[InputRequired(),Email()])
-    password = PasswordField('Password',validators =[InputRequired()])
-    remember = BooleanField('Remember me')
-    submit = SubmitField('Sign In')

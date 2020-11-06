@@ -1,0 +1,21 @@
+{% extends 'base.html'%}
+{% import 'bootstrap/wtf.html' as wtf%}
+
+{% block content %}
+    <div class="container">
+        <h1>BLOG</h1>
+        
+        <hr>
+        <div class="col-md-3">
+            <ul class="nav nav-tabs nav-stacked">
+                <li role="presentation" class="active"><a href="#">Write</a></li>
+                <li role="presentation"><a href=""> Blogs</a></li>
+                <li role="presentation"><a href="#">comments</a></li>
+                <li role="presentation"><a href="/admin">Admin</a></li>
+            </ul>
+        </div>
+        <div class="col-md-8">
+             {{ wtf.quick_form(blog)}} {{simplemde.load}}
+        </div>
+    </div>
+{% endblock%}

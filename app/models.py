@@ -47,7 +47,7 @@ class Blog(db.Model):
 
     id = db.Column(db.Integer,primary_key = True)
     title = db.Column(db.String)
-    description=db.Column(db.Text)
+    body=db.Column(db.Text)
     timestamp = db.Column(db.DateTime, index=True, default=datetime.utcnow)
     user_id = db.Column(db.Integer,db.ForeignKey("users.id"))
 

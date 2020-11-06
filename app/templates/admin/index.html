@@ -1,0 +1,9 @@
+{% extends 'admin/master.html'%}
+{% block body %}
+    <div class="container">
+        <h1>hello</h1>
+        <p>Go back to blog
+            <a href="{{url_for('main.index')}}"><input type="button" class="btn btn-primary" value="Blog"></a>
+        </p>
+    </div>
+{% endblock body %}

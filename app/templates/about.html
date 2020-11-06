@@ -1,0 +1,16 @@
+{% extends 'base.html' %} {% block content%}
+
+<div class="container">
+    <h1>ABOUT</h1>
+    <hr>
+    <div class="row">
+        <div class="col-md-4">
+            <img src="{{ url_for('static', filename='images/bern.png')}}" alt="picture" class="img img-reponsive img-thumbnail" id="pic" >
+        </div>
+        <div class="col-md-8">
+            <p>I am a Sage Products consultant and currently own my own company @esnbltd.com. A co. that deals with consulting services on ERP, Payroll and HR solutions.</p>
+        </div>
+    </div>
+
+</div>
+{% endblock %}
